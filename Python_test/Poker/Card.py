@@ -36,3 +36,11 @@ class Card():
 
     def __eq__(self, other):
         return self.rank == other.rank and self.suit == other.suit
+
+    def __lt__(self, other):
+        #Compara los dos cartas a modo de string. Por jemplo: "Queen" es meno rque "king", pero
+        #en un string no sería así la comparación, es al contrario.
+
+        current_card_rank_index = self.RANKS.index(self.rank)
+        other_card_rank_index = self.RANKS.index(other.rank)
+        return current_card_rank_index < other_card_rank_index
